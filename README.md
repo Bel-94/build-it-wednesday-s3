@@ -44,7 +44,7 @@ Terraform provisions everything as code so the setup is repeatable and easy to c
 
 ## Architecture
 
-![Architecture diagram: Terraform to S3 static website to public URL](architecture/architecture-diagram.png)
+![Architecture diagram: Terraform to S3 static website to public URL](screenshots/architectural-diagram.png)
 
 **Flow:**
 
@@ -78,9 +78,11 @@ Terraform provisions everything as code so the setup is repeatable and easy to c
 ```text
 build-it-wednesday-s3/
 ├── README.md                 ← you are here
-├── architecture/
-│   └── architecture-diagram.png
-├── screenshots/              ← proof of a successful deployment
+├── screenshots/              ← architecture diagram + deployment proof
+│   ├── architectural-diagram.png
+│   ├── terraform-apply.png
+│   ├── home-page.png
+│   └── ...
 ├── website/                  ← the HTML/CSS site Terraform uploads
 │   ├── index.html
 │   ├── error.html
@@ -151,7 +153,7 @@ cd build-it-wednesday-s3
 
 Work in a terminal. Every command below is intentional — read the “Why” notes.
 
-### Step 1 — Go into the Terraform folder
+### Step 1 - Go into the Terraform folder
 
 ```bash
 cd terraform
@@ -159,7 +161,7 @@ cd terraform
 
 **Why:** All `.tf` files live here. Terraform commands must run from this directory.
 
-### Step 2 — Create your variable file (optional)
+### Step 2 - Create your variable file (optional)
 
 ```bash
 cp terraform.tfvars.example terraform.tfvars
@@ -176,7 +178,7 @@ If you leave `bucket_name` unset, Terraform creates a unique name automatically.
 
 **Why:** S3 bucket names are globally unique. Auto-naming avoids collisions between learners.
 
-### Step 3 — Initialize Terraform
+### Step 3 - Initialize Terraform
 
 ```bash
 terraform init
@@ -186,7 +188,7 @@ terraform init
 
 Expected result: `Terraform has been successfully initialized!`
 
-### Step 4 — Preview the plan
+### Step 4 - Preview the plan
 
 ```bash
 terraform plan
@@ -202,7 +204,7 @@ You should see resources such as:
 - `aws_s3_bucket_policy.website`
 - `aws_s3_object.website_files[...]`
 
-### Step 5 — Apply (create the website in AWS)
+### Step 5 - Apply (create the website in AWS)
 
 ```bash
 terraform apply
@@ -218,7 +220,7 @@ When it finishes, you should see outputs like:
 
 Copy your `website_url` value.
 
-### Step 6 — Open the website
+### Step 6 - Open the website
 
 Paste the URL into your browser (it starts with `http://`).
 
@@ -321,7 +323,7 @@ Type `yes`.
 
 ---
 
-## Why Block Public Access is adjusted (read this)
+## Why Block Public Access is adjusted
 
 By default, AWS blocks public access to new buckets. That is a strong security default.
 
@@ -336,7 +338,7 @@ The policy still follows least privilege: only `s3:GetObject` on objects. No pub
 
 ---
 
-## AWS Well-Architected notes (interview talking points)
+## AWS Well-Architected notes
 
 ### Operational Excellence
 Terraform makes the setup repeatable. `plan` before `apply` reduces surprises.

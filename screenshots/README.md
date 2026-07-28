@@ -28,7 +28,7 @@ Take these only if you want a richer story:
 | `bucket-website-config.png` | Console or CLI: index/error document settings | Explains Static Website Hosting |
 | `bucket-policy.png` | Public `s3:GetObject` policy (redact account IDs if needed) | Teaches least-privilege public read |
 | `error-page.png` | Visit a fake path like `/does-not-exist` | Proves `error.html` works |
-| `architecture-diagram.png` | Already in `../architecture/` | Use in posts; no need to duplicate |
+| `architectural-diagram.png` | Project architecture diagram used in the README | Primary visual for LinkedIn / portfolio |
 
 ## What not to screenshot
 
