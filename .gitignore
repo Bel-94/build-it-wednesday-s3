@@ -1,0 +1,22 @@
+# Local Terraform artifacts (never commit these)
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Learner-specific variable values (keep the .example file)
+terraform/terraform.tfvars
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

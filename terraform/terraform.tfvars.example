@@ -1,0 +1,23 @@
+# =============================================================================
+# terraform.tfvars.example
+# WHY THIS FILE EXISTS:
+# This is a SAFE template. Copy it to terraform.tfvars and customize values.
+# terraform.tfvars is commonly gitignored because it can contain account-
+# specific names. The .example file is what teammates (and learners) share.
+#
+# Usage:
+#   cp terraform.tfvars.example terraform.tfvars
+#   # edit terraform.tfvars
+#   terraform plan
+# =============================================================================
+
+# AWS region for the bucket and website endpoint
+aws_region = "us-east-1"
+
+# Used in default tags and (optionally) generated bucket names
+project_name = "biw-s3-static-website"
+environment  = "lab"
+
+# Optional: set an explicit globally unique bucket name.
+# Leave commented out to let Terraform generate one automatically.
+# bucket_name = "my-company-landing-page-lab-2026"

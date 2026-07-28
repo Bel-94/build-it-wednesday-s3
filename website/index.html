@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NimbusForge, cloud landing pages delivered with Amazon S3 and Terraform."
+    />
+    <title>NimbusForge, Static Sites on Amazon S3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="NimbusForge home">
+        <img src="assets/logo.svg" alt="" width="36" height="36" />
+        <span>NimbusForge</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-small" href="#contact">Get started</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-atmosphere" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">NimbusForge</p>
+          <h1 id="hero-title">Ship landing pages without managing servers</h1>
+          <p class="hero-lead">
+            A production-inspired static site hosted on Amazon S3 and provisioned
+            entirely with Terraform, built for Build It Wednesday.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Explore services</a>
+            <a class="btn btn-ghost" href="#about">How it works</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about" aria-labelledby="about-title">
+        <div class="section-inner">
+          <h2 id="about-title">Built for teams that want clarity, not complexity</h2>
+          <p class="section-lead">
+            NimbusForge helps startups publish a polished marketing site using
+            durable object storage instead of virtual machines. No patching. No
+            capacity planning. Just files, a bucket policy, and a website endpoint.
+          </p>
+          <ul class="about-points">
+            <li>
+              <strong>Serverless by design</strong>
+              <span>Amazon S3 serves your HTML, CSS, and images directly.</span>
+            </li>
+            <li>
+              <strong>Infrastructure as Code</strong>
+              <span>Terraform creates every AWS resource; repeatable and reviewable.</span>
+            </li>
+            <li>
+              <strong>Certification-ready concepts</strong>
+              <span>Buckets, objects, keys, prefixes, and policies. The Solutions Architect Associate foundation.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="services" class="section services" aria-labelledby="services-title">
+        <div class="section-inner">
+          <h2 id="services-title">What we deliver</h2>
+          <p class="section-lead">
+            Three focused capabilities that map cleanly to how static sites run on AWS.
+          </p>
+          <div class="service-list">
+            <article class="service">
+              <img src="assets/icon-host.svg" alt="" width="48" height="48" />
+              <h3>Static hosting</h3>
+              <p>
+                Publish index and error documents from an S3 bucket configured for
+                website hosting; simple, durable, and fully managed.
+              </p>
+            </article>
+            <article class="service">
+              <img src="assets/icon-iac.svg" alt="" width="48" height="48" />
+              <h3>Terraform delivery</h3>
+              <p>
+                Provision the bucket, ownership controls, public access settings,
+                policy, and website objects from a single apply.
+              </p>
+            </article>
+            <article class="service">
+              <img src="assets/icon-scale.svg" alt="" width="48" height="48" />
+              <h3>Effortless scale</h3>
+              <p>
+                S3 absorbs traffic spikes without servers to resize. Pay only for
+                storage and requests as your audience grows.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-inner">
+          <h2 id="contact-title">Ready to launch?</h2>
+          <p class="section-lead">
+            This page is the demo artifact. Clone the repo, run Terraform, and open
+            the website endpoint printed in the outputs.
+          </p>
+          <form class="contact-form" action="#contact" method="get">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Alex Cloud" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="alex@startup.io" required />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4" placeholder="Tell us about your landing page…" required></textarea>
+            </label>
+            <button class="btn" type="submit">Send message</button>
+            <p class="form-note">
+              Demo form only, no backend is attached in this beginner architecture.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" alt="" width="28" height="28" />
+          <span>NimbusForge</span>
+        </div>
+        <p>
+          Build It Wednesday · Host a Static Website on Amazon S3 Using Terraform
+        </p>
+        <p class="footer-meta">
+          Educational project · Not affiliated with Amazon Web Services
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      /* Lightweight entrance motion; no framework required */
+      const reveal = document.querySelectorAll(".about-points li, .service, .contact-form");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      reveal.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
